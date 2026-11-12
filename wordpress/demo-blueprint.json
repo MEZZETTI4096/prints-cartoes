@@ -1,0 +1,35 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Cartões de Visitas | Gráfica Print's (demonstração)",
+    "description": "WordPress de demonstração com o plugin Prints Cartões instalado e a página /cartoes criada.",
+    "author": "Gráfica Print's"
+  },
+  "landingPage": "/cartoes/",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "login": true,
+  "steps": [
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Gráfica Print's",
+        "permalink_structure": "/%postname%/",
+        "timezone_string": "America/Sao_Paulo"
+      }
+    },
+    { "step": "setSiteLanguage", "language": "pt_BR" },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/MEZZETTI4096/prints-cartoes/main/wordpress/dist/prints-cartoes.zip"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-load.php'; flush_rewrite_rules();"
+    }
+  ]
+}
