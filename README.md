@@ -32,7 +32,27 @@ Ao clicar em **Enviar no WhatsApp**, a página verifica os campos obrigatórios,
 os itens escolhidos (opções "Nenhuma das opções" são ignoradas) e abre `wa.me/<número>` com o texto pronto.
 Nada é salvo em servidor.
 
-## Publicar na Hostinger
+## WordPress (Hostinger com WordPress)
+
+A pasta `wordpress/` tem a mesma página como plugin:
+
+| arquivo | para quê |
+|---|---|
+| `wordpress/dist/prints-cartoes.zip` | plugin pronto: **Plugins → Adicionar novo → Enviar plugin** → Ativar |
+| `wordpress/importar-pagina-cartoes.xml` | **Ferramentas → Importar → WordPress**: cria a página "Cartões de Visitas" em `/cartoes` |
+| `wordpress/prints-cartoes/` | código-fonte do plugin (PHP) |
+| `wordpress/build.py` | gera o zip de novo depois de editar `assets/` ou o plugin: `python wordpress/build.py` |
+
+Duas formas de exibir:
+
+- **Modelo "Prints Cartões (página inteira)"** (padrão da página importada): idêntica à original, sem cabeçalho/rodapé e sem o CSS do tema.
+- **Shortcode `[prints_cartoes]`**: em qualquer página ou post, dentro do layout do tema.
+
+No WordPress, os preços ficam em `wp-content/plugins/prints-cartoes/assets/js/dados.js`
+(editável em **Plugins → Editor de arquivos de plugins**). Se a página `/cartoes` já existir, o importador
+pula a criação; nesse caso crie a página manualmente com o modelo e o shortcode acima.
+
+## Publicar na Hostinger (site estático, sem WordPress)
 
 1. hPanel → **Sites** → o domínio → **Gerenciador de Arquivos** → `public_html` (ou a pasta do subdomínio).
 2. Envie `index.html` e a pasta `assets/` mantendo a estrutura.
