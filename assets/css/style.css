@@ -72,6 +72,40 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
 .pc-app .sub-label a { color: #2ab200; text-decoration: none; box-shadow: none; }
 .pc-app .sub-label a:hover { text-decoration: underline; }
 
+/* Blocos nativos do WordPress dentro de uma Seção (versão editável no WordPress) */
+.pc-app .pc-secao h1, .pc-app .pc-secao h2, .pc-app .pc-secao h3,
+.pc-app .pc-secao h4, .pc-app .pc-secao h5, .pc-app .pc-secao h6 {
+  margin: 0 0 6px;
+  padding: 0;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+  color: rgba(0, 0, 0, 0.85);
+}
+.pc-app .pc-secao .wp-block-image {
+  margin: 8px 0 16px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.pc-app .pc-secao .wp-block-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.pc-app .pc-secao p {
+  margin: 0 0 13px;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.5715;
+  color: #808080;
+}
+.pc-app .pc-secao a { color: #2ab200; text-decoration: none; box-shadow: none; }
+.pc-app .pc-secao a:hover { text-decoration: underline; }
+
 /* Campo (label + controle) */
 .pc-app .form-item { margin-bottom: 12px; }
 .pc-app .form-item-label {

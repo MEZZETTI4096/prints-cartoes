@@ -1,6 +1,7 @@
 <?php
 /**
- * Modelo "Prints Cartões (página inteira)": sem cabeçalho/rodapé do tema, igual à página original.
+ * Modelo "Prints Cartões (página inteira)": sem cabeçalho/rodapé nem CSS do tema, igual à página original.
+ * Mostra o conteúdo da página (editável no editor de blocos).
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -20,7 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( function_exists( 'wp_body_open' ) ) {
 	wp_body_open();
 }
-echo prints_cartoes_shortcode(); // phpcs:ignore WordPress.Security.EscapeOutput -- HTML fixo e escapado na função.
+while ( have_posts() ) {
+	the_post();
+	the_content();
+}
 wp_footer();
 ?>
 </body>
