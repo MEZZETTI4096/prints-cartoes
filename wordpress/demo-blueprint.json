@@ -2,12 +2,17 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
     "title": "Cartões de Visitas | Gráfica Print's (demonstração)",
-    "description": "WordPress de demonstração com o plugin Prints Cartões instalado e a página /cartoes criada.",
+    "description": "WordPress de demonstração com o plugin Print's Páginas instalado e a página /cartoes importada.",
     "author": "Gráfica Print's"
   },
   "landingPage": "/cartoes/",
-  "preferredVersions": { "php": "8.3", "wp": "latest" },
-  "features": { "networking": true },
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
   "login": true,
   "steps": [
     {
@@ -18,18 +23,31 @@
         "timezone_string": "America/Sao_Paulo"
       }
     },
-    { "step": "setSiteLanguage", "language": "pt_BR" },
+    {
+      "step": "setSiteLanguage",
+      "language": "pt_BR"
+    },
     {
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/MEZZETTI4096/prints-cartoes/main/wordpress/dist/prints-cartoes.zip"
+        "url": "https://raw.githubusercontent.com/MEZZETTI4096/prints-cartoes/main/wordpress/dist/prints-paginas.zip"
       },
-      "options": { "activate": true }
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/tmp/paginas.zip",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/MEZZETTI4096/prints-cartoes/main/wordpress/dist/paginas-todas.zip"
+      }
     },
     {
       "step": "runPHP",
-      "code": "<?php require '/wordpress/wp-load.php'; flush_rewrite_rules();"
+      "code": "<?php require '/wordpress/wp-load.php'; prints_paginas_importar_zip('/tmp/paginas.zip', true); flush_rewrite_rules();"
     }
   ]
 }

@@ -1,19 +1,22 @@
-/* Réplica do layout original (valores medidos da página publicada).
-   Tudo fica sob .pc-app para não conflitar com temas do WordPress. */
+/* Páginas de pedido (layout medido da página original + ajustes pedidos pelo cliente).
+   Tudo fica sob .pc-app para não conflitar com temas do WordPress.
+   Cores editáveis no bloco Formulário: --pc-cor (botão, links, "Click aqui para escolher") e --pc-fundo. */
 .pc-app, .pc-app *, .pc-app *::before, .pc-app *::after { box-sizing: border-box; }
 
-body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
+body.pc-pagina { margin: 0; padding: 0; background: #fff; }
 
 .pc-app {
   min-height: 100vh;
   padding: 80px;
+  --pc-cor-claro: color-mix(in srgb, var(--pc-cor, #2ab200) 80%, #fff);
+  --pc-cor-escuro: color-mix(in srgb, var(--pc-cor, #2ab200) 80%, #000);
   font-family: Poppins, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5715;
   color: rgba(0, 0, 0, 0.85);
   text-align: left;
   letter-spacing: normal;
-  background: #f4f5f6;
+  background: var(--pc-fundo, #fff);
   -webkit-font-smoothing: antialiased;
 }
 /* Dentro de uma página com o tema (shortcode): sem altura mínima */
@@ -30,49 +33,25 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
 .pc-app form { margin: 0; }
 
 .pc-app .form-group {
-  padding: 16px 12px;
+  padding: var(--pc-gy) var(--pc-gx);
   border-radius: 5px;
 }
+.pc-app { --pc-gy: 16px; --pc-gx: 12px; }
 
 .pc-app .bloco { width: 96%; }
 .pc-app .bloco-header { width: 85%; }
 
-.pc-app .header-title {
-  margin: 0 0 6px;
-  padding: 0;
-  font-family: inherit;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: normal;
-  text-transform: none;
-  color: rgba(0, 0, 0, 0.85);
+/* Produto: título, imagem, texto e campos num bloco só. Os campos ficam com a mesma largura e
+   espaçamento de quando eram blocos soltos (celular idêntico ao original). */
+.pc-app .pc-produto > .bloco > .pc-campo {
+  width: calc(100% / .96 + 2 * var(--pc-gx));
+  margin-left: calc(-1 * var(--pc-gx));
 }
+/* 1º campo depois do texto: + o espaço do fim da antiga seção (padding, para a margem do parágrafo não absorver) */
+.pc-app .pc-produto > .bloco > :where(:not(.pc-campo)) + .pc-campo { padding-top: calc(2 * var(--pc-gy)); }
+.pc-app .pc-produto > .bloco > .pc-campo:last-child { margin-bottom: calc(-1 * var(--pc-gy)); }
 
-.pc-app .image-container {
-  margin: 8px 0 16px;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.pc-app .image-container img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border: 0;
-  box-shadow: none;
-}
-
-.pc-app .sub-label {
-  display: block;
-  font-size: 13px;
-  color: #808080;
-}
-.pc-app .sub-label p { margin: 0 0 13px; padding: 0; font-size: 13px; line-height: 1.5715; }
-.pc-app .sub-label a { color: #2ab200; text-decoration: none; box-shadow: none; }
-.pc-app .sub-label a:hover { text-decoration: underline; }
-
-/* Blocos nativos do WordPress dentro de uma Seção (versão editável no WordPress) */
+/* Seção: blocos nativos do WordPress (título, imagem, parágrafos) */
 .pc-app .pc-secao h1, .pc-app .pc-secao h2, .pc-app .pc-secao h3,
 .pc-app .pc-secao h4, .pc-app .pc-secao h5, .pc-app .pc-secao h6 {
   margin: 0 0 6px;
@@ -103,7 +82,8 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
   line-height: 1.5715;
   color: #808080;
 }
-.pc-app .pc-secao a { color: #2ab200; text-decoration: none; box-shadow: none; }
+.pc-app .pc-sem-titulo :is(h1, h2, h3, h4, h5, h6) { display: none; }
+.pc-app .pc-secao a { color: var(--pc-cor, #2ab200); text-decoration: none; box-shadow: none; }
 .pc-app .pc-secao a:hover { text-decoration: underline; }
 
 /* Campo (label + controle) */
@@ -153,13 +133,13 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
   text-overflow: ellipsis;
   transition: border-color .3s, box-shadow .3s;
 }
-.pc-app .select-wrap select:hover { border-color: #4fc21e; }
+.pc-app .select-wrap select:hover { border-color: var(--pc-cor-claro); }
 .pc-app .select-wrap select:focus {
   outline: 0;
-  border-color: #4fc21e;
-  box-shadow: 0 0 0 2px rgba(42, 178, 0, 0.2);
+  border-color: var(--pc-cor-claro);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--pc-cor, #2ab200) 20%, transparent);
 }
-.pc-app .select-wrap select.vazio { color: #bfbfbf; }
+.pc-app .select-wrap select.vazio { color: var(--pc-cor, #2ab200); }
 .pc-app .select-wrap select option { color: rgba(0, 0, 0, 0.85); }
 .pc-app .select-wrap svg {
   position: absolute;
@@ -210,15 +190,15 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
   width: 16px;
   height: 16px;
   margin: -8px 0 0 -8px;
-  background: #2ab200;
+  background: var(--pc-cor, #2ab200);
   border-radius: 50%;
   transform: scale(0);
   opacity: 0;
   transition: all .3s cubic-bezier(.78,.14,.15,.86);
 }
 .pc-app .radio:hover .inner,
-.pc-app .radio input:focus-visible + .inner { border-color: #2ab200; }
-.pc-app .radio input:checked + .inner { border-color: #2ab200; }
+.pc-app .radio input:focus-visible + .inner { border-color: var(--pc-cor, #2ab200); }
+.pc-app .radio input:checked + .inner { border-color: var(--pc-cor, #2ab200); }
 .pc-app .radio input:checked + .inner::after { transform: scale(.5); opacity: 1; }
 .pc-app .radio .txt { padding: 0 8px; }
 
@@ -248,8 +228,8 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
   letter-spacing: normal;
   text-transform: none;
   color: #fff;
-  background: #2ab200;
-  border: 1px solid #2ab200;
+  background: var(--pc-cor, #2ab200);
+  border: 1px solid var(--pc-cor, #2ab200);
   border-radius: 5px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.043);
   cursor: pointer;
@@ -257,8 +237,8 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
 }
 .pc-app .submit-button svg { width: 18px; height: 18px; }
 .pc-app .submit-button:hover,
-.pc-app .submit-button:focus-visible { color: #fff; background: #4fc21e; border-color: #4fc21e; outline: 0; }
-.pc-app .submit-button:active { background: #1d8c00; border-color: #1d8c00; }
+.pc-app .submit-button:focus-visible { color: #fff; background: var(--pc-cor-claro); border-color: var(--pc-cor-claro); outline: 0; }
+.pc-app .submit-button:active { background: var(--pc-cor-escuro); border-color: var(--pc-cor-escuro); }
 
 @media (max-width: 575px) {
   .pc-app { padding: 0; }
@@ -267,5 +247,36 @@ body.pc-pagina { margin: 0; padding: 0; background: #f4f5f6; }
     border: 0;
     border-radius: 0;
   }
-  .pc-app .form-group { padding: 8px; }
+  .pc-app { --pc-gy: 8px; --pc-gx: 8px; }
+}
+
+/* Notebook / computador (o celular não muda): página mais larga. */
+@media (min-width: 992px) {
+  .pc-app { padding: 40px 24px; }
+  .pc-app .form-container { max-width: 1040px; padding: 32px 40px; }
+}
+
+/* Produto lado a lado quando o formulário tem largura de computador (≥ 800px úteis).
+   Medido no próprio formulário (container query), então o editor do WordPress mostra igual ao site.
+   Desligável no bloco Formulário ("imagem ao lado do produto"); imagem à direita no bloco Produto. */
+.pc-app .form-container { container: pc-form / inline-size; }
+@container pc-form (min-width: 800px) {
+  .pc-app [data-lado-a-lado] .pc-produto { padding: 24px 12px; border-bottom: 1px solid #f0f0f3; border-radius: 0; }
+  .pc-app [data-lado-a-lado] .pc-produto > .bloco {
+    display: grid;
+    grid-template-columns: 380px minmax(0, 1fr);
+    grid-template-rows: repeat(40, auto) 1fr; /* a última linha absorve a altura da imagem */
+    column-gap: 40px;
+    align-items: start;
+    width: 100%;
+  }
+  .pc-app [data-lado-a-lado] .pc-produto > .bloco > figure.wp-block-image:first-of-type { grid-column: 1; grid-row: 1 / -1; margin: 0; }
+  .pc-app [data-lado-a-lado] .pc-produto > .bloco > :not(figure.wp-block-image:first-of-type) { grid-column: 2; }
+  .pc-app [data-lado-a-lado] .pc-produto.pc-imagem-direita > .bloco { grid-template-columns: minmax(0, 1fr) 380px; }
+  .pc-app [data-lado-a-lado] .pc-produto.pc-imagem-direita > .bloco > figure.wp-block-image:first-of-type { grid-column: 2; }
+  .pc-app [data-lado-a-lado] .pc-produto.pc-imagem-direita > .bloco > :not(figure.wp-block-image:first-of-type) { grid-column: 1; }
+  .pc-app [data-lado-a-lado] .pc-produto > .bloco > .pc-campo { width: auto; margin: 0; padding: 8px 0 0; }
+  .pc-app [data-lado-a-lado] .pc-produto .form-item-control { width: 100%; }
+  /* Imagens soltas (logo, faixas) sem ocupar a tela toda */
+  .pc-app .pc-secao:not(.pc-produto) .wp-block-image img { width: auto; max-height: 260px; }
 }

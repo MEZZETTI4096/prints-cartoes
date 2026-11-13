@@ -1,0 +1,64 @@
+/* Aparência dos blocos dentro do editor do WordPress: igual ao site, com os controles de edição por cima. */
+.pc-app.pc-editor { min-height: 0; padding: 24px 0; }
+/* O tema limita a largura do conteúdo no editor; a página usa o modelo de página inteira, então o editor também. */
+.is-layout-constrained > .pc-app.pc-editor { max-width: none; margin-left: 0 !important; margin-right: 0 !important; }
+.pc-app .pc-botao-editor { cursor: default; }
+
+/* Título oculto: aparece apagado só no editor */
+.pc-app .pc-sem-titulo-editor :is(h1, h2, h3, h4, h5, h6) { opacity: .35; text-decoration: line-through; }
+
+/* Campos: visual do site; título digitado direto no rótulo */
+.pc-app .pc-campo-editor .pc-titulo-campo {
+  display: inline-block;
+  width: calc(100% - 20px);
+  min-height: 22px;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  resize: none;
+}
+.pc-app .pc-campo-editor .pc-titulo-campo:focus { outline: 1px dashed var(--pc-cor, #2ab200); outline-offset: 2px; }
+.pc-app .pc-select-falso {
+  height: 40px;
+  padding: 0 30px 0 11px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 38px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+}
+.pc-app .pc-select-falso.vazio { color: var(--pc-cor, #2ab200); }
+.pc-app .pc-campo-editor .radio { cursor: default; }
+
+/* Editor de opções (aparece quando o campo está selecionado) */
+.pc-app .pc-opcoes-editor {
+  margin: 4px 0 8px;
+  padding: 12px;
+  font-size: 13px;
+  background: #f6fbf3;
+  border: 1px dashed #9fd68a;
+  border-radius: 5px;
+}
+.pc-app .pc-opcoes-linhas { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.pc-app .pc-opcao-linha { display: flex; align-items: center; gap: 2px; }
+.pc-app .pc-opcao-num { flex: none; width: 22px; color: #8c8f94; font-size: 11px; text-align: right; padding-right: 4px; }
+.pc-app .pc-opcao-texto {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  padding: 0 8px;
+  font: inherit;
+  font-size: 13px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+.pc-app .pc-opcao-texto:focus { border-color: var(--pc-cor, #2ab200); outline: 0; box-shadow: 0 0 0 1px var(--pc-cor, #2ab200); }
+.pc-app .pc-opcao-add { margin: 6px 0 0 24px; }
+.pc-app .pc-opcoes-editor textarea { font-family: inherit; font-size: 13px; line-height: 1.6; }
+.pc-app .pc-opcoes-editor .components-base-control { margin-bottom: 0; }

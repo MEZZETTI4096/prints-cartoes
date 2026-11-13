@@ -1,27 +1,32 @@
 /* Conteúdo da página. Para mudar preços/produtos, edite este arquivo.
-   tipos: image (título+imagem+descrição), header (título+texto), dropdown (lista), radio (opções) */
+   tipos: image (título+imagem+descrição), header (título+texto), dropdown (lista), radio (opções)
+   "titulo"/"slug": nome e endereço da página (pasta /cartoes no site estático e /cartoes no WordPress)
+   imagens: relativas a esta pasta (img/...) */
 window.FORM_CONFIG = {
+  "titulo": "Cartões de Visitas",
+  "slug": "cartoes",
   "whatsapp": "5519983190031",
   "textoBotao": "Enviar no WhatsApp",
   "campos": [
     {
       "tipo": "image",
-      "imagem": "assets/img/logo.png"
+      "imagem": "img/logo.png"
     },
     {
       "tipo": "header",
       "titulo": "Cartões de Visitas",
+      "ocultarTitulo": true,
       "descricao": "<p>Após escolher seu produto você será atendido pelo nosso time no <a href=\"https://app.prints.art.br/folhetos\" rel=\"noopener noreferrer\" target=\"_blank\"><strong>WhatsApp</strong></a>!</p>"
     },
     {
       "tipo": "image",
-      "imagem": "assets/img/img-03.png"
+      "imagem": "img/img-03.png"
     },
     {
       "tipo": "image",
       "titulo": "Cartão | Só Frente",
       "descricao": "<p><strong>IMPRESSÃO: SÓ FRENTE</strong></p><p>Papel: Couché 250 gramas</p><p>Verniz Total Frente</p><p>Produção: 3/4 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-04.png"
+      "imagem": "img/img-04.png"
     },
     {
       "tipo": "dropdown",
@@ -45,7 +50,7 @@ window.FORM_CONFIG = {
       "tipo": "image",
       "titulo": "Cartão | Frente e Verso",
       "descricao": "<p><strong>IMPRESSÃO: FRENTE E VERSO</strong></p><p>Papel: Couché 250 gramas</p><p>Verniz Total Frente e Verso</p><p>Produção: 4 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-06.png"
+      "imagem": "img/img-06.png"
     },
     {
       "tipo": "dropdown",
@@ -69,7 +74,7 @@ window.FORM_CONFIG = {
       "tipo": "image",
       "titulo": "Cartão Fosco | Veniz Localizado",
       "descricao": "<p><strong>IMPRESSÃO: FRENTE/VERSO</strong></p><p>Papel: Couché 300 gramas</p><p>Verniz Localizado | Laminação Fosca</p><p>Produção: 4 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-08.png"
+      "imagem": "img/img-08.png"
     },
     {
       "tipo": "radio",
@@ -97,7 +102,7 @@ window.FORM_CONFIG = {
       "tipo": "image",
       "titulo": "Cartão HotStamping | Soft Touch",
       "descricao": "<p><strong>IMPRESSÃO: FRENTE E VERSO</strong></p><p>Soft Touch | Couche 300g</p><p>HotStamping (Frente)</p><p>Produção: 5 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-11.png"
+      "imagem": "img/img-11.png"
     },
     {
       "tipo": "radio",
@@ -123,7 +128,7 @@ window.FORM_CONFIG = {
       "tipo": "image",
       "titulo": "Cartão PVC 0,3mm | 410g",
       "descricao": "<p><strong>IMPRESSÃO: FRENTE/VERSO</strong></p><p>PVC 0,3mm | 410 gramas</p><p>4 Cantos Arredondados</p><p>Produção: 4 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-14.png"
+      "imagem": "img/img-14.png"
     },
     {
       "tipo": "dropdown",
@@ -143,7 +148,7 @@ window.FORM_CONFIG = {
       "tipo": "image",
       "titulo": "Cartão Redondo | Frente e Verso",
       "descricao": "<p><strong>IMPRESSÃO: FRENTE E VERSO</strong></p><p>Papel: Couché 300 gramas</p><p>Verniz Total Frente</p><p>Produção: 4 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-16.png"
+      "imagem": "img/img-16.png"
     },
     {
       "tipo": "dropdown",
@@ -165,7 +170,7 @@ window.FORM_CONFIG = {
       "tipo": "image",
       "titulo": "Mini Cartão  | Frente e Verso",
       "descricao": "<p><strong>IMPRESSÃO: FRENTE E VERSO</strong></p><p>Papel: Couché 250 gramas</p><p>Verniz Total Frente e Verso</p><p>Produção: 4 dias úteis aprox.</p><p><strong>Mínimo: 50und</strong></p>",
-      "imagem": "assets/img/img-18.png"
+      "imagem": "img/img-18.png"
     },
     {
       "tipo": "dropdown",
@@ -186,7 +191,7 @@ window.FORM_CONFIG = {
     },
     {
       "tipo": "image",
-      "imagem": "assets/img/logo.png"
+      "imagem": "img/logo.png"
     },
     {
       "tipo": "header",

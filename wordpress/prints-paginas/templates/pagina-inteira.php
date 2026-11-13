@@ -1,6 +1,6 @@
 <?php
 /**
- * Modelo "Prints Cartões (página inteira)": sem cabeçalho/rodapé nem CSS do tema, igual à página original.
+ * Modelo "Print's Páginas (página inteira)": sem cabeçalho/rodapé nem CSS do tema, igual à página original.
  * Mostra o conteúdo da página (editável no editor de blocos).
  */
 if ( ! defined( 'ABSPATH' ) ) {
